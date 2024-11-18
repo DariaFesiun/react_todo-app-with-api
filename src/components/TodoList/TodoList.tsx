@@ -1,4 +1,4 @@
-import React from 'react';
+// import React from 'react';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { Todo } from '../../types/Todo';
 import { TodoItem } from '../TodoItem/TodoItem';
@@ -26,17 +26,16 @@ export const TodoList: React.FC<Props> = ({
             <CSSTransition key={todo.id} timeout={300} classNames="item">
               <TodoItem
                 todo={todo}
-                // key={todo.id}
                 onDeleteTodo={onDeleteTodo}
-                isLoading={loading.includes(todo.id)}
                 onUpdateTodo={onUpdateTodo}
+                isLoading={loading.includes(todo.id)}
               />
             </CSSTransition>
           ))}
 
           {tempTodo && (
             <CSSTransition key={0} timeout={300} classNames="temp-item">
-              <TodoItem todo={tempTodo} isProcessed />
+              <TodoItem todo={tempTodo} isLoading />
             </CSSTransition>
           )}
         </div>

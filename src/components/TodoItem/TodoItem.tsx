@@ -11,8 +11,8 @@ type Props = {
 
 export const TodoItem: React.FC<Props> = ({
   todo,
-  onDeleteTodo = () => {},
   isLoading = false,
+  onDeleteTodo = () => {},
   onUpdateTodo = () => {},
 }) => {
   const { completed, id, title: todoTitle, userId } = todo;
@@ -114,8 +114,8 @@ export const TodoItem: React.FC<Props> = ({
 
       <div
         data-cy="TodoLoader"
-        className={classNames('modal', 'overlay', {
-          'is-active': isLoading.includes(id),
+        className={classNames('modal overlay', {
+          'is-active': isLoading
         })}
       >
         <div className="modal-background has-background-white-ter" />
